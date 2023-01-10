@@ -1,0 +1,49 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "#C0C0C0",
+          "foreground": "#FFFFFF",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "time_format": "15:04"
+          },
+          "style": "powerline",
+          "template": " \uf64f {{ .CurrentDate | date .Format }} ",
+          "type": "time"
+        },
+        {
+          "background": "#A9A9A9",
+          "foreground": "#FFFFFF",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "folder_icon": "\uf115",
+            "folder_separator_icon": " \ue0b1 ",
+            "home_icon": "~",
+            "style": "agnoster_short"
+          },
+          "style": "powerline",
+          "template": " {{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "background": "#C0C0C0",
+          "foreground": "#FFFFFF",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "branch_icon": "\ue0a0 "
+          },
+          "style": "powerline",
+          "template": " {{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} ",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
